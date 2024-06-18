@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
@@ -22,13 +23,14 @@
 				<!-- Header -->
 					<header id="header" class="alt">
 						<span class="logo image"><img src="images/icon.png" alt="" /></span>
-						<h1>MUSE: Machine Unlearning Six-Way Evaluation for Language Models</h1>
+						<h1 style="color: white;">MUSE: Machine Unlearning Six-Way Evaluation for Language Models</h1>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#leaderboard">Leaderboard</a></li>
 							<li><a href="#criteria">Evaluation Criteria</a></li>
 							<li><a href="#corpus">Evaluation Corpus</a></li>
 							<!-- <li><a href="#re">Results Highlight</a></li> -->
@@ -40,23 +42,25 @@
 					<div id="main">
 
 						<!-- Introduction -->
-							<section id="intro" class="main">
+							<section id="intro" class="main special">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
 											<h2>Introduction</h2>
 										</header>
-										<p>Training language models (LMs) often involves using vast amounts of text data, which may inadvertently contain <b>private</b> and <b>copyrighted</b> content. In real-world applications, data owners may demand that their data be removed (i.e., <b>the forget set</b>) from a trained language model due to privacy or copyright concerns, as mandated for example by the <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR)</a>. Moreover, recent <a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">copyright lawsuits</a> emphasize the need for removing copyrighted data from the model.
-										</p>
+										<p style="text-align: left;">Training language models (LMs) often involves using vast amounts of text data, which may inadvertently contain <b>private</b> and <b>copyrighted</b> content. In real-world applications, data owners may demand that their data be removed (i.e., <b>the forget set</b>) from a trained language model due to privacy or copyright concerns, as mandated for example by the <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR)</a>. Moreover, recent <a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">copyright lawsuits</a> emphasize the need for removing copyrighted data from the model.
+										
 										<!-- <ul class="actions">
 											<li><a href="https://gdpr-info.eu/art-17-gdpr/" class="button">The <b>right to be forgotten</b> in GDPR</a></li>
 											<li><a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html" class="button">New York Times sued OpenAI for copyright infringement</a></li>
 										</ul> -->
 										<!-- <br> -->
-
-										However, exactly unlearning only these datapoints (i.e., retraining with the data removed) is intractable in modern-day models, leading to the development of many approximate unlearning algorithms.
-
-										We propose MUSE, a benchmark that seeks to evaluate six desired properties for unlearning algorithms, covering both the data owner’s and the model deployer’s considerations.
+									</p>
+										
+										<p style="text-align: left;">However, exactly unlearning only these datapoints (i.e., retraining with the data removed) is intractable in modern-day models, leading to the development of many approximate unlearning algorithms.</p>
+										<!-- <br> -->
+										<p style="text-align: left;">We propose MUSE, a benchmark that seeks to evaluate six desired properties for unlearning algorithms, covering both the data owner’s and the model deployer’s considerations.</p>
+									</p>
 									</div>
 									<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
 								</div>
@@ -64,13 +68,28 @@
 
 						<!-- First Section -->
 						<span class="logo image"><img src="images/privacy.svg" alt="" /></span>
+
+													<!-- Get Started -->
+						<section id="leaderboard" class="main special">
+							<header class="major">
+								<h2>Leaderboard</h2>
+							</header>
+							<p>Here is a preview of the leaderboard performance of eight unlearning methods on the MUSE benchmark:</p>
+							<div class="row">
+								<div class="col-md-12">
+									<gradio-app src="https://boyiwei-cotaeval-leaderboard.hf.space"></gradio-app>
+								</div>
+							</div>
+							
+							
+						</section>
+
 							<section id="criteria" class="main special">
 								<header class="major">
 									<h2>Evaluation Criteria</h2>
-									<p>MUSE considers both the data owner’s and the model deployer’s expectations.</p>
 								</header>
-								<h3>Data Owner <span class="icon solid style3 fa-users"></span></h3>
-								<p>When removing a forget set from a model, data owners typically have three main expectations regarding the unlearned model: </p>
+								<p style="text-align: left;">MUSE considers both the data owner’s and the model deployer’s expectations.</p>
+								<p style="text-align: left;"><b>‣ Data Owner </b><span class="icon solid style3 fa-users"></span>: When removing a forget set from a model, data owners typically have three main expectations regarding the unlearned model: </p>
 								<ul class="features">
 									<li>
 										<span class="icon major style3 fa-copy"></span>
@@ -89,20 +108,8 @@
 										<p>It should be impossible to detect that the model was ever trained on the forget set. </p>
 									</li>
 								</ul>
-								<!-- <footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer> -->
-							<!-- </section>
 
-
-							<section id="second" class="main special"> -->
-								<!-- <header class="major">
-									<h3>Evaluation Criteria: Model Deployer <span class="icon solid style5 fa-server"></span></h2>
-								</header> -->
-								<h3>Model Deployer <span class="icon solid style5 fa-server"></span></h3>
-								<p>Model deployers have their own considerations for using unlearning algorithms in the real world:</p>
+								<p style="text-align: left;"><b>‣ Model Deployers</b> <span class="icon solid style5 fa-server"></span> have their own considerations for using unlearning algorithms in the real world:</p>
 								<ul class="features">
 									<li>
 										<span class="icon solid major style5 fa-gem"></span>
@@ -169,16 +176,9 @@
 								</footer> -->
 							</section>
 
-						<!-- Get Started -->
-						<section id="ref" class="main special">
-							<header class="major">
-								<h2>Results</h2>
-							</header>
-							
-							
-						</section>
 
-							<section id="cta" class="main special">
+
+							<section id="ref" class="main special">
 								<header class="major">
 									<h2>BibTex</h2>
 								</header>
@@ -243,6 +243,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.36.1/gradio.js"></script>
 
 	</body>
 </html>
