@@ -126,15 +126,15 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		font-family: "Source Sans Pro", Helvetica, sans-serif !important;
-		font-size: 17pt !important;
+		font-size: 13pt !important;
 		font-weight: 300 !important;
-		line-height: 1.65 !important;
+		line-height: 1.4 !important;
 	}
 
 		@media screen and (max-width: 1680px) {
 
 			body, input, select, textarea {
-				font-size: 14pt;
+				font-size: 13pt;
 			}
 
 		}
@@ -161,7 +161,7 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease, border-bottom 0.2s ease !important;
 		transition: color 0.2s ease, border-bottom 0.2s ease !important;
 		text-decoration: none !important;
-		border-bottom: dotted 1px !important;
+		/* border-bottom: dotted 1px !important; */
 		color: #90a8da !important;
 		font-weight: 500 !important;
 	}
@@ -180,6 +180,7 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+		font-size: 16px !important;
 	}
 
 		p.content {
@@ -3088,7 +3089,7 @@ input, select, textarea {
 		}
 
 		#header.alt {
-			padding: 7em 5em 4em 5em ;
+			padding: 4em 5em 4em 5em ;
 		}
 
 			#header.alt h1 {
@@ -3136,7 +3137,7 @@ input, select, textarea {
 			}
 
 				#header.alt {
-					padding: 6em 4em 3em 4em ;
+					padding: 3em 4em 3em 4em ;
 				}
 
 		}
@@ -3148,7 +3149,7 @@ input, select, textarea {
 			}
 
 				#header.alt {
-					padding: 5em 3em 2em 3em ;
+					padding: 2em 3em 2em 3em ;
 				}
 
 		}

@@ -5,164 +5,202 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>MUSE</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap.css">
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>MUSE</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo image"><img src="images/icon.png" alt="" /></span>
-						<h1 style="color: white;">MUSE: Machine Unlearning Six-Way Evaluation for Language Models</h1>
-						<h2 style="color: white;">Weijia Shi*, Jaechan Lee*, Yangsibo Huang*, <br /> Sadhika Malladi, Jieyu Zhao, Ari Holtzman, Daogao Liu, <br />Luke Zettlemoyer, Noah A. Smith, Chiyuan Zhang</h2>
-					</header>
+<body class="is-preload">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
-							<li><a href="#leaderboard">Leaderboard</a></li>
-							<li><a href="#criteria">Evaluation Criteria</a></li>
-							<li><a href="#corpus">Evaluation Corpus</a></li>
-							<!-- <li><a href="#re">Results Highlight</a></li> -->
-							<li><a href="#ref">Citation</a></li>
-						</ul>
-					</nav>
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<span class="logo image"><img src="images/icon.png" alt="" /></span>
+			<h1 style="color: white;">MUSE: Machine Unlearning Six-Way Evaluation for Language Models</h1>
+			<p style="color: white; font-size:20px !important">
+				<a href="https://swj0419.github.io/">Weijia Shi</a><sup>*1</sup>,
+				<a href="https://www.linkedin.com/in/jaechan-lee-8186b415a">Jaechan Lee</a><sup>*1</sup>,
+				<a href="https://hazelsuko07.github.io/yangsibo/">Yangsibo Huang</a><sup>*2</sup>,
+				<br />
+				<a href="https://www.cs.princeton.edu/~smalladi/">Sadhika Malladi</a><sup>2</sup>,
+				<a href="https://jyzhao.net/">Jieyu Zhao</a><sup>3</sup>,
+				<a href="https://ariholtzman.com/">Ari Holtzman</a><sup>4</sup>,
+				<a href="https://daogaoliu.github.io/">Daogao Liu</a><sup>1</sup>,
+				<br />
+				<a href="https://www.cs.washington.edu/people/faculty/lsz">Luke Zettlemoyer</a><sup>1</sup>,
+				<a href="https://nasmith.github.io/">Noah A. Smith</a><sup>1</sup>,
+				<a href="https://pluskid.org/">Chiyuan Zhang</a><sup>5</sup>
+			</p>
+			<p style="color: white; font-size:15px"><sup>1</sup>University of Washington, <sup>2</sup>Princeton
+				University, <sup>3</sup>University of Southern California, <sup>4</sup>The University of Chicago,
+				<sup>5</sup>Google</p>
+		</header>
 
-						<!-- Introduction -->
-							<section id="intro" class="main special">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Introduction</h2>
-										</header>
-										<p style="text-align: left;">Training language models (LMs) often involves using vast amounts of text data, which may inadvertently contain <b>private</b> and <b>copyrighted</b> content. In real-world applications, data owners may demand that their data be removed (i.e., <b>the forget set</b>) from a trained language model due to privacy or copyright concerns, as mandated for example by the <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR)</a>. Moreover, recent <a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">copyright lawsuits</a> emphasize the need for removing copyrighted data from the model.
-										
-										<!-- <ul class="actions">
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">Introduction</a></li>
+				<li><a href="#leaderboard">Leaderboard</a></li>
+				<li><a href="#criteria">Evaluation Criteria</a></li>
+				<li><a href="#corpus">Evaluation Corpus</a></li>
+				<!-- <li><a href="#re">Results Highlight</a></li> -->
+				<li><a href="#ref">Citation</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Introduction -->
+			<section id="intro" class="main special">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>Introduction</h2>
+						</header>
+						<p style="text-align: left;">Training language models (LMs) often involves using vast amounts of
+							text data, which may inadvertently contain <b>private</b> and <b>copyrighted</b> content. In
+							real-world applications, data owners may demand that their data be removed (i.e., <b>the
+								forget set</b>) from a trained language model due to privacy or copyright concerns, as
+							mandated for example by the <a href="https://gdpr-info.eu/art-17-gdpr/">General Data
+								Protection Regulation (GDPR)</a>. Moreover, recent <a
+								href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html">copyright
+								lawsuits</a> emphasize the need for removing copyrighted data from the model.
+
+							<!-- <ul class="actions">
 											<li><a href="https://gdpr-info.eu/art-17-gdpr/" class="button">The <b>right to be forgotten</b> in GDPR</a></li>
 											<li><a href="https://www.nytimes.com/2023/12/27/business/media/new-york-times-open-ai-microsoft-lawsuit.html" class="button">New York Times sued OpenAI for copyright infringement</a></li>
 										</ul> -->
-										<!-- <br> -->
-									</p>
-										
-										<p style="text-align: left;">However, exactly unlearning only these datapoints (i.e., retraining with the data removed) is intractable in modern-day models, leading to the development of many approximate unlearning algorithms.</p>
-										<!-- <br> -->
-										<p style="text-align: left;">We propose MUSE, a benchmark that seeks to evaluate six desired properties for unlearning algorithms, covering both the data owner’s and the model deployer’s considerations.</p>
-									</p>
-									</div>
-									<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
-								</div>
-							</section>
+							<!-- <br> -->
+						</p>
 
-						<!-- First Section -->
-						<span class="logo image"><img src="images/privacy.svg" alt="" /></span>
+						<p style="text-align: left;">However, exactly unlearning only these datapoints (i.e., retraining
+							with the data removed) is intractable in modern-day models, leading to the development of
+							many approximate unlearning algorithms.</p>
+						<!-- <br> -->
+						<p style="text-align: left;">We propose MUSE, a benchmark that seeks to evaluate six desired
+							properties for unlearning algorithms, covering both the data owner’s and the model
+							deployer’s considerations.</p>
+						</p>
+					</div>
+					<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
+				</div>
+			</section>
 
-													<!-- Get Started -->
-						<section id="leaderboard" class="main special">
-							<header class="major">
-								<h2>Leaderboard</h2>
-							</header>
-							<p>Here is a preview of the leaderboard performance of eight unlearning methods on the MUSE benchmark:</p>
-							<div class="row">
-								<div class="col-md-12">
-									<gradio-app src="https://boyiwei-cotaeval-leaderboard.hf.space"></gradio-app>
-								</div>
-							</div>
-							
-							
-						</section>
+			<!-- First Section -->
+			<span class="logo image"><img src="images/privacy.svg" alt="" /></span>
 
-							<section id="criteria" class="main special">
-								<header class="major">
-									<h2>Evaluation Criteria</h2>
-								</header>
-								<p style="text-align: left;">MUSE considers both the data owner’s and the model deployer’s expectations.</p>
-								<p style="text-align: left;"><b>‣ Data Owners </b><span class="icon solid style3 fa-users"></span> &nbsp; typically expect three things from the unlearned model: </p>
-								<br />
-								<ul class="features">
-									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>No verbatim memorization</h3>
-										<p>The model should not exactly replicate any details from the forget set.</p>
-									</li>
-									<li>
-										<span class="icon solid style3 major fa-book-open"></span>
-										<h3>No knowledge memorization</h3>
-										<p>The model should be incapable of responding to questions about the forget set. </p>
-									</li>
-									<li>
-										<!-- <span class="icon major style3 fa-user-lock"></span> -->
-										<span class="icon solid style3 major fa-user-lock"></span>
-										<h3>No privacy leakage</h3>
-										<p>It should be impossible to detect that the model was ever trained on the forget set. </p>
-									</li>
-								</ul>
+			<!-- Get Started -->
+			<section id="leaderboard" class="main special">
+				<header class="major">
+					<h2>Leaderboard</h2>
+				</header>
+				<p>Here is a preview of the leaderboard performance of eight unlearning methods on the MUSE benchmark:
+				</p>
+				<div class="row">
+					<div class="col-md-12">
+						<gradio-app src="https://boyiwei-cotaeval-leaderboard.hf.space"></gradio-app>
+					</div>
+				</div>
 
-								<p style="text-align: left;"><b>‣ Model Deployers</b> <span class="icon solid style5 fa-server"></span>  &nbsp; have practical considerations around using unlearning algorithms:</p>
-								<br />
-								<ul class="features">
-									<li>
-										<span class="icon solid major style5 fa-gem"></span>
-										<h3>Utility preservation</h3>
-										<p>Unlearning specific datapoints should not degrade model capabilities in ways that are difficult to recover</p>
-									</li>
-									<li>
-										<span class="icon major solid style5 fa-balance-scale-left"></span>
-										<h3>Scalability</h3>
-										<p>Deployers are expected to effectively accommodate somewhat large-scale forget sets</p>
-									</li>
-									<li>
-										<span class="icon major solid  style5 fa-calendar-week"></span>
-										<h3>Sustainability</h3>
-										<p>Deployers are expected to effectively accommodate successive unlearning requests from data owners</p>
-									</li>
-								</ul>
-								<!-- <footer class="major">
+
+			</section>
+
+			<section id="criteria" class="main special">
+				<header class="major">
+					<h2>Evaluation Criteria</h2>
+				</header>
+				<p style="text-align: left;">MUSE considers both the data owner’s and the model deployer’s expectations.
+				</p>
+				<p style="text-align: left;"><b>‣ Data Owners </b><span class="icon solid style3 fa-users"></span>
+					&nbsp; typically expect three things from the unlearned model: </p>
+				<br />
+				<ul class="features">
+					<li>
+						<span class="icon major style3 fa-copy"></span>
+						<h3>No verbatim memorization</h3>
+						<p>The model should not exactly replicate any details from the forget set.</p>
+					</li>
+					<li>
+						<span class="icon solid style3 major fa-book-open"></span>
+						<h3>No knowledge memorization</h3>
+						<p>The model should be incapable of responding to questions about the forget set. </p>
+					</li>
+					<li>
+						<!-- <span class="icon major style3 fa-user-lock"></span> -->
+						<span class="icon solid style3 major fa-user-lock"></span>
+						<h3>No privacy leakage</h3>
+						<p>It should be impossible to detect that the model was ever trained on the forget set. </p>
+					</li>
+				</ul>
+
+				<p style="text-align: left;"><b>‣ Model Deployers</b> <span class="icon solid style5 fa-server"></span>
+					&nbsp; have practical considerations around using unlearning algorithms:</p>
+				<br />
+				<ul class="features">
+					<li>
+						<span class="icon solid major style5 fa-gem"></span>
+						<h3>Utility preservation</h3>
+						<p>Unlearning specific datapoints should not degrade model capabilities in ways that are
+							difficult to recover</p>
+					</li>
+					<li>
+						<span class="icon major solid style5 fa-balance-scale-left"></span>
+						<h3>Scalability</h3>
+						<p>Deployers are expected to effectively accommodate somewhat large-scale forget sets</p>
+					</li>
+					<li>
+						<span class="icon major solid  style5 fa-calendar-week"></span>
+						<h3>Sustainability</h3>
+						<p>Deployers are expected to effectively accommodate successive unlearning requests from data
+							owners</p>
+					</li>
+				</ul>
+				<!-- <footer class="major">
 									<ul class="actions special">
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer> -->
-							</section>
+			</section>
 
-						<!-- Second Section -->
-							<section id="corpus" class="main special">
-								<header class="major">
-									<h2>Benchmark Corpus</h2>
-								</header>
-								<p>MUSE tackles real-world unlearning challenges with large-scale corpus, with</p>
-								<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-book"></span>
-										<span class="icon solid fa-plus" style="scale:50%"></span>
-										<span class="icon solid fa-newspaper"></span>
-										<strong>2 Corpus</strong> 
-										<br>
-										Books, News
-									</li>
-									<li class="style3">
-										<span class="icon fa-folder-open"></span>
-										<strong>xxxx Examples</strong> 
-										<br>
-										Text and Q&A pairs
-									</li>
-									<li class="style5">
-										<span class="icon solid fa-signal"></span>
-										<strong>6.5M Tokens</strong> Simulation of real-world large-scale unlearning request
-									</li>
-									<!-- <li class="style4">
+			<!-- Second Section -->
+			<section id="corpus" class="main special">
+				<header class="major">
+					<h2>Benchmark Corpus</h2>
+				</header>
+				<p>MUSE tackles real-world unlearning challenges with large-scale corpus, with</p>
+				<ul class="statistics">
+					<li class="style1">
+						<span class="icon solid fa-book"></span>
+						<span class="icon solid fa-plus" style="scale:50%"></span>
+						<span class="icon solid fa-newspaper"></span>
+						<strong>2 Corpus</strong>
+						<br>
+						Books, News
+					</li>
+					<li class="style3">
+						<span class="icon fa-folder-open"></span>
+						<strong>xxxx Examples</strong>
+						<br>
+						Text and Q&A pairs
+					</li>
+					<li class="style5">
+						<span class="icon solid fa-signal"></span>
+						<strong>6.5M Tokens</strong> Simulation of real-world large-scale unlearning request
+					</li>
+					<!-- <li class="style4">
 										<span class="icon solid fa-laptop"></span>
 										<strong>4,096</strong> Aliquam
 									</li>
@@ -170,83 +208,84 @@
 										<span class="icon fa-gem"></span>
 										<strong>1,024</strong> Nullam
 									</li> -->
-								</ul>
-								<!-- <p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
+				</ul>
+				<!-- <p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
 								<footer class="major">
 									<ul class="actions special">
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer> -->
-							</section>
+			</section>
 
 
 
-							<section id="ref" class="main special">
-								<header class="major">
-									<h2>BibTex</h2>
-								</header>
-								<p>If you find our code and paper helpful, please consider citing our work:
-								</p>
-								<ul class="statistics">
-									<li class="style1" style="text-align: left;">
-										@article{<br>
-											&nbsp &nbsp &nbsp &nbsp title={},<br>
-											&nbsp &nbsp &nbsp &nbsp author={},<br>
-										}
-									</li>
-									
-								</ul>
-								<!-- <footer class="major">
+			<section id="ref" class="main special">
+				<header class="major">
+					<h2>BibTex</h2>
+				</header>
+				<p>If you find our code and paper helpful, please consider citing our work:
+				</p>
+				<ul class="statistics">
+					<li class="style1" style="text-align: left;">
+						@article{<br>
+						&nbsp &nbsp &nbsp &nbsp title={},<br>
+						&nbsp &nbsp &nbsp &nbsp author={},<br>
+						}
+					</li>
+
+				</ul>
+				<!-- <footer class="major">
 									<ul class="actions special">
 										<li><a href="generic.html" class="button primary">Get Started</a></li>
 										<li><a href="generic.html" class="button">Learn More</a></li>
 									</ul>
 								</footer> -->
-							</section>
+			</section>
 
-					</div>
+		</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Acknowledgement</h2>
-							<p>xxxxxx</p>
-							<ul class="actions">
-								<!-- <li><a href="generic.html" class="button">Learn More</a></li> -->
-							</ul>
-						</section>
-						<section>
-							<h2>Links</h2>
-							<dl class="alt">
-								<dt>Paper</dt>
-								<dd>xxxx</dd>
-								<dt>GitHub</dt>
-								<dd>xxxx</dd>
-								<!-- <dt>Email</dt> -->
-								<!-- <dd><a href="#">information@untitled.tld</a></dd> -->
-							</dl>
-							<!-- <ul class="icons">
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<h2>Acknowledgement</h2>
+				<p>xxxxxx</p>
+				<ul class="actions">
+					<!-- <li><a href="generic.html" class="button">Learn More</a></li> -->
+				</ul>
+			</section>
+			<section>
+				<h2>Links</h2>
+				<dl class="alt">
+					<dt>Paper</dt>
+					<dd>xxxx</dd>
+					<dt>GitHub</dt>
+					<dd>xxxx</dd>
+					<!-- <dt>Email</dt> -->
+					<!-- <dd><a href="#">information@untitled.tld</a></dd> -->
+				</dl>
+				<!-- <ul class="icons">
 								<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
 								<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
 								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
 								<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
 								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
 							</ul> -->
-						</section>
-						<!-- <p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p> -->
-					</footer>
+			</section>
+			<!-- <p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p> -->
+		</footer>
 
-			</div>
+	</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.36.1/gradio.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.36.1/gradio.js"></script>
 
-	</body>
+</body>
+
 </html>
