@@ -2433,6 +2433,7 @@ input, select, textarea {
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
+		font-size: 15px;
 	}
 
 		ul li {
@@ -3587,7 +3588,7 @@ input, select, textarea {
 		}
 
 		#main > .main {
-			padding: 5em 5em 3em 5em ;
+			padding: 3em 5em 3em 5em ;
 			border-top: solid 1px #dddddd;
 		}
 
