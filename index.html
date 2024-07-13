@@ -95,15 +95,22 @@
       </p>
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text-center">
-          <a href="">
+          <a href="https://arxiv.org/abs/2407.06460">
             <button class="button-8">Paper</button>
           </a>
-          <a href="">
-            <button class="button-8">Code</button>
+          <a href="https://huggingface.co/spaces/muse-bench/MUSE-Leaderboard">
+            <button class="button-8">Leaderboard</button>
           </a>
-          <a href="">
-            <button class="button-8">Dataset</button>
+		<a href="https://github.com/jaechan-repo/muse_bench">
+			<button class="button-8">Code</button>
+		</a>
+          <a href="https://huggingface.co/datasets/muse-bench/MUSE-News">
+            <button class="button-8">Dataset (News)</button>
           </a>
+		<a href="https://huggingface.co/datasets/muse-bench/MUSE-Books">
+			<button class="button-8">Dataset (Books)</button>
+		</a>
+
         </div>
       </div>
     </header>
@@ -203,10 +210,10 @@
           Here is a preview of the leaderboard performance of eight unlearning
           methods on the MUSE benchmark:
         </p>
-        <p style="color: red; text-align: left">This is a placeholder</p>
+        <!-- <p style="color: red; text-align: left">This is a placeholder</p> -->
         <div class="row" style="text-align: left">
           <div class="col-md-12">
-            <gradio-app src="https://boyiwei-cotaeval-leaderboard.hf.space"></gradio-app>
+            <gradio-app src="https://huggingface.co/spaces/muse-bench/MUSE-Leaderboard"></gradio-app>
           </div>
         </div>
       </section>
@@ -350,12 +357,16 @@
           work:
         </p>
         <pre style="text-align: left;">
-          @article{shi2024muse,
-            &nbsp&nbsp&nbsptitle={MUSE: Machine Unlearning Six-Way Evaluation for Language Models},
-            &nbsp&nbsp&nbspauthor={Shi, Weijia and Lee, Jaechan and Huang, Yangsibo and Malladi, Sadhika  and Zhao, Jieyu and Holtzman, Ari and Liu, Daogao and Zettlemoyer, Luke and Smith, Noah A and Zhang, Chiyuan},
-            &nbsp&nbsp&nbspjournal={arXiv preprint arXiv:},
-            &nbsp&nbsp&nbspyear={2024}
-          }</pre>        
+		@article{shi2024muse,
+		title={MUSE: Machine Unlearning Six-Way Evaluation for Language Models},
+		author={Weijia Shi and Jaechan Lee and Yangsibo Huang and Sadhika Malladi and Jieyu Zhao and Ari Holtzman and Daogao Liu
+		and Luke Zettlemoyer and Noah A. Smith and Chiyuan Zhang},
+		year={2024},
+		eprint={2407.06460},
+		archivePrefix={arXiv},
+		primaryClass={cs.CL},
+		url={https://arxiv.org/abs/2407.06460},
+		}</pre>        
       </section>
     </div>
 
